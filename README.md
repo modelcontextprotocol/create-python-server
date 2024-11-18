@@ -1,6 +1,6 @@
 # MCP Create Server
 
-[![PyPI](https://img.shields.io/pypi/v/mcp-create-server)](https://pypi.org/project/mcp-create-server/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI](https://img.shields.io/pypi/v/create-mcp-server)](https://pypi.org/project/create-mcp-server/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Create MCP server projects with no build configuration.
 
@@ -8,7 +8,7 @@ Create MCP server projects with no build configuration.
 
 ```sh
 # Using pip
-pip install mcp-create-server
+pip install create-mcp-server
 create-mcp-server
 
 # Or using uvx (recommended)
@@ -25,7 +25,7 @@ To create a new server, run either of these commands:
 
 ### Using pip
 ```sh
-pip install mcp-create-server
+pip install create-mcp-server
 create-mcp-server
 ```
 
