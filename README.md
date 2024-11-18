@@ -40,12 +40,11 @@ It will walk you through creating a new MCP server project. When complete, you'l
 my-server/
 ├── README.md
 ├── pyproject.toml
-├── src/
-│   └── my_server/
-│       ├── __init__.py
-│       └── server.py
-└── tests/
-    └── __init__.py
+└── src/
+    └── my_server/
+        ├── __init__.py
+        ├── __main__.py
+        └── server.py
 ```
 
 No configuration or complicated folder structures, only the files you need to run your server.
