@@ -136,6 +136,7 @@ def copy_template(
         ("__init__.py.jinja2", "__init__.py", target_dir),
         ("server.py.jinja2", "server.py", target_dir),
         ("README.md.jinja2", "README.md", path),
+        ("test_server.py.jinja2", "test_server.py", target_dir),
     ]
 
     pyproject = PyProject(path / "pyproject.toml")
