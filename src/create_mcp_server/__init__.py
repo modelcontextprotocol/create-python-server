@@ -182,6 +182,7 @@ def create_project(
     # Add mcp dependency using uv add
     try:
         subprocess.run(["uv", "add", "mcp"], cwd=path, check=True)
+        subprocess.run(["uv", "add", "pytest", '--dev'], cwd=path, check=True)
     except subprocess.CalledProcessError:
         click.echo("❌ Error: Failed to add mcp dependency.", err=True)
         sys.exit(1)
