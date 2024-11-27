@@ -136,6 +136,7 @@ def copy_template(
         ("__init__.py.jinja2", "__init__.py", target_dir),
         ("server.py.jinja2", "server.py", target_dir),
         ("README.md.jinja2", "README.md", path),
+        ("test_server.py.jinja2", "test_server.py", target_dir),
     ]
 
     pyproject = PyProject(path / "pyproject.toml")
@@ -181,6 +182,7 @@ def create_project(
     # Add mcp dependency using uv add
     try:
         subprocess.run(["uv", "add", "mcp"], cwd=path, check=True)
+        subprocess.run(["uv", "add", "pytest", '--dev'], cwd=path, check=True)
     except subprocess.CalledProcessError:
         click.echo("❌ Error: Failed to add mcp dependency.", err=True)
         sys.exit(1)
