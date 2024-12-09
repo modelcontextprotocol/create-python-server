@@ -121,10 +121,12 @@ def get_package_directory(path: Path) -> Path:
 
 
 def copy_template(
-    path: Path, name: str, description: str, version: str = "0.1.0"
+    path: Path, name: str, description: str, version: str = "0.1.0", template: str = "blank"
 ) -> None:
     """Copy template files into src/<project_name>"""
     template_dir = Path(__file__).parent / "template"
+    if template == "notes":
+        template_dir = template_dir / "notes"
 
     target_dir = get_package_directory(path)
 
@@ -278,6 +280,12 @@ def check_package_name(name: str) -> bool:
     help="Project description",
 )
 @click.option(
+    "--template",
+    type=click.Choice(["blank", "notes"]),
+    default="blank",
+    help="Project template to use",
+)
+@click.option(
     "--claudeapp/--no-claudeapp",
     default=True,
     help="Enable/disable Claude.app integration",
@@ -287,6 +295,7 @@ def main(
     name: str | None,
     version: str | None,
     description: str | None,
+    template: str,
     claudeapp: bool,
 ) -> int:
     """Create a new MCP server project"""
@@ -343,6 +352,7 @@ def main(
     project_path = project_path.resolve()
 
     create_project(project_path, name, description, version, claudeapp)
+    copy_template(project_path, name, description, version, template)
     update_pyproject_settings(project_path, version, description)
 
     return 0
