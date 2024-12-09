@@ -131,7 +131,7 @@ def copy_template(
     target_dir = get_package_directory(path)
 
     import jinja2
-from jinja2 import Environment, FileSystemLoader
+    from jinja2 import Environment, FileSystemLoader
 
     env = Environment(loader=FileSystemLoader(str(template_dir)))
 
