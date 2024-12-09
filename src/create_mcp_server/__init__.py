@@ -130,7 +130,8 @@ def copy_template(
 
     target_dir = get_package_directory(path)
 
-    from jinja2 import Environment, FileSystemLoader
+    import jinja2
+from jinja2 import Environment, FileSystemLoader
 
     env = Environment(loader=FileSystemLoader(str(template_dir)))
 
@@ -153,7 +154,7 @@ def copy_template(
 
     try:
         for template_file, output_file, output_dir in files:
-            template = env.get_template(template_file)
+            template: jinja2.Template = env.get_template(template_file)
             rendered = template.render(**template_vars)
 
             out_path = output_dir / output_file
