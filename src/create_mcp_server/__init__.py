@@ -121,11 +121,11 @@ def get_package_directory(path: Path) -> Path:
 
 
 def copy_template(
-    path: Path, name: str, description: str, version: str = "0.1.0", template: str = "blank"
+    path: Path, name: str, description: str, version: str = "0.1.0", template_name: str = "blank"
 ) -> None:
     """Copy template files into src/<project_name>"""
     template_dir = Path(__file__).parent / "template"
-    if template == "notes":
+    if template_name == "notes":
         template_dir = template_dir / "notes"
 
     target_dir = get_package_directory(path)
