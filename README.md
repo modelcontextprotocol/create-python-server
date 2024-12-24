@@ -43,7 +43,6 @@ my-server/
 └── src/
     └── my_server/
         ├── __init__.py
-        ├── __main__.py
         └── server.py
 ```
 
