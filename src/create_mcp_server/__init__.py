@@ -326,7 +326,13 @@ def main(
             )
             return 1
 
-    project_path = (Path.cwd() / name) if path is None else path
+    # Default to 'servers' directory if path not specified
+    if path is None:
+        servers_dir = Path.cwd() / "servers"
+        servers_dir.mkdir(exist_ok=True)  # Create servers directory if it doesn't exist
+        project_path = servers_dir / name
+    else:
+        project_path = path
 
     # Ask the user if the path is correct if not specified on command line
     if path is None:
