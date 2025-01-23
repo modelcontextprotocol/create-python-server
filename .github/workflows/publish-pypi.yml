@@ -32,9 +32,6 @@ jobs:
         name: release-dists
         path: dist/
 
-  checks:
-    uses: ./.github/workflows/shared.yml
-
   pypi-publish:
     name: Upload release to PyPI
     runs-on: ubuntu-latest
